@@ -1,9 +1,9 @@
 """
-WSGI config for mysite project.
+Konfigurace WSGI pro projekt mysite.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+Zpřístupňuje WSGI, které lze volat jako proměnnou na úrovni modulu s názvem ,,application''.
 
-For more information on this file, see
+Další informace o tomto souboru naleznete v části
 https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 """
 

@@ -39,9 +39,9 @@ def register(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-			messages.success(request, f"New Account Created: {username}")
+			messages.success(request, f"Nový účet vytvořen: {username}")
 			login(request, user)
-			messages.info(request, f"You are now logged in as {username}")
+			messages.info(request, f"Právě jsi přihlášen jako {username}")
 			return redirect("main:homepage")
 		else:
 			for msg in form.error_messages:
@@ -55,25 +55,25 @@ def register(request):
 
 def logout_request(request):
 	logout(request)
-	messages.info(request, "Logged out successfully!")
+	messages.info(request, "Právě jsi odhlášen!")
 	return redirect("main:homepage")
 
 def login_request(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
+			username = form.cleaned_data.get('jméno')
+			password = form.cleaned_data.get('heslo')
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"You are now logged in as {username}")
+				messages.info(request, f"Právě jsi přihlášen jako {username}")
 				return redirect("main:homepage")
 			else:
-				messages.error(request, "Invalid username or password")
+				messages.error(request, "Neplatné jméno nebo heslo")
 
 		else:
-			messages.error(request, "Invalid username or password")
+			messages.error(request, "Neplatné jméno nebo heslo")
 
 	form = AuthenticationForm()
 	return render(request,
