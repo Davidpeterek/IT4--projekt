@@ -1,0 +1,15 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+<div class="container">
+	<br><br>
+	<form method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+
+		<button class="btn" type="submit">registrace</button>
+	</form>
+
+	Jestliže už máš účet, <a href="/login"><button class="btn-small" type="submit">Přihlas</button></a> se.
+</div>
+{% endblock %}

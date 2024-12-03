@@ -1,0 +1,17 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+<div class="container">
+	<br>
+	<h6>Tip: Prosím přihlas se, aby jsi viděl skóre, jestliže nemáš ještě účet <a href="/register">Registruj se</a> pro teď</h6>
+	<br><br>
+	<form method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+
+		<button class="btn" type="submit">Přihlásit</button>
+	</form>
+
+	Jestli ještě nemáš účet, <a href="/register"><button class="btn-small" type="submit">Registruj se</button></a> teď.
+</div>
+{% endblock %}

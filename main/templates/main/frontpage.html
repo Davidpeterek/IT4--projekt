@@ -1,0 +1,76 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+  <div class="tiles">
+    <br>
+    <section class="swiper-container loading">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide slide1">
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Vítej na sportovní stránce</p>
+            <span class="caption" data-swiper-parallax="-20%">Stránka zobrazující nejnovější sportovní výsledky
+        </span>
+                    <a href="/login"><button style="border-radius: 20px;" class="btn-small" type="submit">Přihlásit</button></a> nebo
+            <a href="/register"><button style="border-radius: 20px;" class="btn-small" type="submit">Registrovat</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide slide2">
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Cricket</p>
+            <span class="caption" data-swiper-parallax="-20%">Kriket (Cricket) je kolektivní pálkovací míčová hra, v níž proti sobě nastupují dvě družstva po jedenácti hráčích. Hraje se na oválném hřišti, v jehož středu je obdélníkový pruh (pitch) o délce 22 yardů (20,12 metru).</span>
+            <a href="/cricket"><button style="border-radius: 20px;" class="btn-small" type="submit">Kriket</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide slide3">
+         
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Foot Ball</p>
+            <span class="caption" data-swiper-parallax="-20%">Fotbal (z anglického football, foot = noha, ball = míč), též kopaná, je kolektivní míčová hra, která je nejpopulárnějším kolektivním sportem na světě.</span>
+            <a href="/football"><button style="border-radius: 20px;" class="btn-small" type="submit">Fotbal</button></a>
+          </div>
+        </div>
+      
+        <div class="swiper-slide slide4">
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Basket ball</p>
+            <span class="caption" data-swiper-parallax="-20%">Basketbal, česky též košíková, je kolektivní míčový sport, ve kterém se dva týmy s pěti hráči snaží získat co nejvíce bodů vhazováním míče do obroučky basketbalového koše a zabránit protihráčům, aby body získali.</span>
+            <a href="/basketball"><button style="border-radius: 20px;" class="btn-small" type="submit">Basketbal</button></a>
+          </div>
+        </div>
+
+    </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+  <script>
+    let sliderSelector = '.swiper-container',
+        options = {
+          loop: true,
+          speed:800,
+          slidesPerView: 2, // nebo 'auto'
+          spaceBetween: 20,
+          centeredSlides : true,
+          effect: 'coverflow', // 'cube', 'fade', 'coverflow',
+          coverflowEffect: {
+            rotate: 50, // Slide rotate in degrees
+            stretch: 0, // Stretch space between slides (in px)
+            depth: 50, // Depth offset in px (slides translate in Z axis)
+            modifier: 1, // Effect multipler
+            slideShadows : true // Enables slides shadows
+          },
+          grabCursor: true,
+          parallax: true,
+          on: {
+            imagesReady: function(){
+              this.el.classList.remove('loading');
+            }
+          }
+        };
+    let mySwiper = new Swiper(sliderSelector, options);
+    mySwiper.init();
+  </script>
+  </div>
+
+{% endblock %}
