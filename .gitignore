@@ -1,0 +1,13 @@
+# files git does not track #
+############################
+*.spec
+
+# folders git does not track #
+##############################
+build
+dist
+
+# Virtual Enviornments #
+########################
+.venv
+venv
